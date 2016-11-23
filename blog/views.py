@@ -10,13 +10,19 @@ from django.views.generic.edit import (
 	DeleteView,
 )
 
+from django.utils import timezone	
+
 
 
 # Create your views here.
 
-
 class PostList(ListView):
-	model = Post
+ model = Post
+
+ # def get_context_data(self, **kwargs):
+ #        context = super(PostListView, self).get_context_data(**kwargs)
+ #        context['now'] = timezone.now()
+ #        return context
 
 class PostDetail(DetailView):
 	model = Post

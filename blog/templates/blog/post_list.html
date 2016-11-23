@@ -1,19 +1,63 @@
+{% extends 'index.html' %}
 
-<h1>Cursos de Platzi</h1>
+    {% block Blog %}
+        <div class="cont_blog"> 
+            <article class="portada">
+                {% load static %}
+                <img src="{% static "media/flor-de-vida.jpg" %}" alt="" width="1000px" />
+                <div class="description">
+                    <h1>El Diseño de la vida, un breve recorrido por los capítulos de la historia</h1>
+                    <div class="author">
+                            <p>
+                                {% load static %}
+                                <img src="{% static 'media/joel.jpg' %}" width="35" height="35"><span>Joel Suarez. </span>
+                                
+                            </p>
+                            <span>Fecha</span>
+                        </div>
+                </div>
+            </article>
 
-<p>
-    <a href="{% url "blog:new_post" %}">Agregar post</a>
-</p>
 
-<ul>
-    {% for post in object_list %}
-        <li>
-            <p>{{ post.name }}</p>
-            <p>
-                <a href="{% url "blog:post_detail" post.id %}">Ver</a> | 
-                <a href="{% url "blog:update_post" post.id %}">Editar</a> | 
-                <a href="{% url "blog:delete_post" post.id %}">Borrar</a> 
-            </p>
-        </li>
-    {% endfor %}
-</ul>
+
+            <section class="blog-items">
+                {% for post in object_list %}
+                    <article class="item-blog">
+
+                            {% if post.image %}
+                            <figure class="image-item">
+                                
+                                <img src="{{ post.image.url }}" alt="" width="300px">
+                            </figure>
+                            {% endif %}
+
+                            <div class="description">
+                                <h3>{{ post.tittle}} </h3>
+                                <div class="author">
+                                    <p>
+                                        {% load static %}
+                                        <img src="{% static 'media/joel.jpg' %}" alt="joel" width="35" height="35"><span>{{ post.posted|date:"F j, Y"}}</span>
+                                        
+                                    </p>
+                                    <span></span>
+                                </div>
+                            </div>
+
+                    </article>
+                {% endfor %}
+            </section>
+        
+            <div class="paginador">
+                <span>pagina 1 de 25</span>
+                <ul>
+                    <li class = "selected"><a href="">1</a></li>
+                    <li><a href="">2</a></li>
+                    <li><a href="">2</a></li>
+                    <li><a href="">4</a></li>
+                    <li><a href="">siguiente</a></li>
+                    <li><a href="">última página</a></li>
+                </ul>
+            </div>
+        </div>          
+
+    {% endblock %}

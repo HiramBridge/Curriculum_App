@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 from django.db import models
 from django.db.models import permalink
+from django.contrib.auth.models import User
 
 
 
@@ -21,9 +22,14 @@ class Post(models.Model):
 	tittle = models.CharField(max_length = 100, unique = True)
 	# slug = models.SlugField(max_length = 100, unique = True)
 	text = models.TextField()
-	posted = models.DateField(db_index = True, auto_now_add = True)
+	posted = models.DateField()
+						# db_index = True,)
+						# auto_now_add = True
 	category = models.ForeignKey(Category)	
 	image = models.ImageField(blank = True)
+	author = models.ForeignKey(User, related_name = "author")
+
+
 		
 	def __unicode__(self):
 		return '%s' % self.tittle

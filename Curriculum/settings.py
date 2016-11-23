@@ -32,9 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'aboutme.apps.AboutmeConfig',
-    'agenda.apps.AgendaConfig',
     'blog.apps.BlogConfig',
-    'forum.apps.ForumConfig',
     'security.apps.SecurityConfig',
     'works.apps.WorksConfig',
     'django.contrib.admin',
@@ -84,7 +82,7 @@ WSGI_APPLICATION = 'Curriculum.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'curriculum',
+        'NAME': 'Project_Cur',
         'USER': 'admin',
         'PASSWORD': 'admin2016',
         'HOST': '127.0.0.1',
@@ -130,11 +128,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['staticfiles'])
+
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
+STATIC_URL = '/static/'
+
 MEDIA_ROOT = 'media'
 MEDIA_URL = '/media/'
+
+
+
+
+

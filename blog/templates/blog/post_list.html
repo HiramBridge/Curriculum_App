@@ -3,17 +3,18 @@
     {% block Blog %}
         <div class="cont_blog"> 
             <article class="portada">
-                {% load static %}
-                <img src="{% static "media/flor-de-vida.jpg" %}" alt="" width="1000px" />
+               <!--  {% load static %}
+                <img src="{% static "media/flor-de-vida.jpg" %}" alt="" width="1000px" /> -->
+                <img src={{object_list.0.image.url}} alt="" width="1000px" />
                 <div class="description">
-                    <h1>El Diseño de la vida, un breve recorrido por los capítulos de la historia</h1>
+                    <h1>{{object_list.0.tittle}}</h1>
                     <div class="author">
                             <p>
                                 {% load static %}
                                 <img src="{% static 'media/joel.jpg' %}" width="35" height="35"><span>Joel Suarez. </span>
                                 
                             </p>
-                            <span>Fecha</span>
+                            <span>{{object_list.0.posted|date:"F j, Y"}}</span>
                         </div>
                 </div>
             </article>
@@ -21,8 +22,10 @@
 
 
             <section class="blog-items">
-                {% for post in object_list %}
+                {% for post in object_list   %}
                     <article class="item-blog">
+
+
 
                             {% if post.image %}
                             <figure class="image-item">
@@ -43,6 +46,9 @@
                                 </div>
                             </div>
 
+
+
+                        
                     </article>
                 {% endfor %}
             </section>

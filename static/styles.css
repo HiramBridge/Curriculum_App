@@ -4,7 +4,7 @@ body {
 	min-width: 100vh;
 	margin:0;
 	display: flex;
-
+	font-family: 'Mate', serif;
 }
 
 .cont_pres {
@@ -277,4 +277,38 @@ body {
 	position: absolute;
 	bottom: 0; 
 	width: 100%;
+}
+
+.cont_aboutme {
+	background: lightblue;
+    width: 1000px;
+    margin: auto;
+    height: 100vh; 
+    /* margin-top: 0; */
+    /* padding-top: 0; */
+
+}
+
+.cont_aboutme h2 {
+	text-align: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.cont_aboutme h3 {
+	padding: 0 15px;
+    margin: 0 auto;
+}
+
+.cont_contact{
+
+	margin: 0;
+    padding: 25px 15px;
+    position: absolute;
+    text-align: -webkit-auto;
+}
+
+.cont_contact h4 {
+	margin: 0;
+    padding: 5px 0;
 }

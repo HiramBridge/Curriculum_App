@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Joel G. Developer</title>
+	<link href="https://fonts.googleapis.com/css?family=Mate" rel="stylesheet">
 	{% load staticfiles %}
 	<link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
@@ -35,8 +36,8 @@
 			<div class="cont_nav_menu">	
 				<nav class="menu_principal">
 					<ul>
-						<li><a href="#">Acerca de mi</a></li>
-						<li><a href="#">Blog</a></li>
+						<li><a href="{% url "aboutme:aboutme" %}">Acerca de mi</a></li>
+						<li><a href="{% url "blog:post_list" %}">Blog</a></li>
 						<li><a href="#">Trabajos</a></li>
 						
 					</ul>
@@ -56,7 +57,7 @@
 		{% endblock %}
 
 		 
-	
+		
 
 
 		{% block acerca_de %}
